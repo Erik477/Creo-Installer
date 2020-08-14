@@ -1,17 +1,19 @@
 package Code;
 
+import java.io.File;
+
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import javafx.stage.Window;
+
 
 public class Graphics extends Application{
 	Stage window;
-	Scene s1,s2;
+	Scene Start,s2;
 	
 
 	@Override
@@ -21,21 +23,38 @@ public class Graphics extends Application{
 		
 		Label label1 = new Label("Wilkommen zum Creo_Installer");
 		Button button1 = new Button("Starten");
-		button1.setOnAction(e -> window.setScene(s2));
-		
-		
+		button1.setOnAction(e -> newClass());
+				
 		
 		VBox layout1 = new  VBox(20);
 		layout1.getChildren().addAll(label1,button1);
-		s1 = new Scene(layout1);
+		Start = new Scene(layout1,300,200);
 		
-		window.setHeight(200);
-		window.setWidth(300);
 		
-		window.setScene(s1);
+		Label label2 = new Label("Please Wait");
+		
+		
+		StackPane layout2 = new StackPane();
+		layout2.getChildren().add(label2);
+		s2 = new Scene(layout2, 600, 300);
+		
+//		window.setHeight(200);
+//		window.setWidth(300);
+		
+		window.setScene(Start);
 		window.setTitle("Creo_Installer");
 		window.show();
 
+	}
+	public void newClass() {
+		Ordner_Suche os = new Ordner_Suche();
+		String serchingfor = new String();
+		serchingfor = "ProE_CD_Student";
+		
+		File f = new File("C:/");
+		
+		os.searchFile(f, serchingfor);
+		window.setScene(s2);
 	}
 
 }
