@@ -6,6 +6,10 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
+import javafx.scene.control.ProgressIndicator;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -25,17 +29,21 @@ public class Graphics extends Application{
 		Button button1 = new Button("Starten");
 		button1.setOnAction(e -> newClass());
 				
-		
-		VBox layout1 = new  VBox(20);
+		VBox layout1 = new  VBox(30);
 		layout1.getChildren().addAll(label1,button1);
 		Start = new Scene(layout1,300,200);
 		
 		
-		Label label2 = new Label("Please Wait");
-		
-		
-		StackPane layout2 = new StackPane();
-		layout2.getChildren().add(label2);
+		Label label2 = new Label("Please make sure the Directory ProE_CD_Student is stored in the C: Drive");
+		ProgressBar pb = new ProgressBar(0.6);
+		ProgressIndicator pi = new ProgressIndicator(0.6);
+		Region r = new Region();
+		r.setPrefWidth(150);
+			
+		VBox layout2 = new VBox(10);	
+		HBox layout3 = new HBox();
+		layout3.getChildren().addAll(r,pb,pi);
+		layout2.getChildren().addAll(label2,layout3);
 		s2 = new Scene(layout2, 600, 300);
 		
 //		window.setHeight(200);
@@ -51,9 +59,10 @@ public class Graphics extends Application{
 		String serchingfor = new String();
 		serchingfor = "ProE_CD_Student";
 		
-		File f = new File("C:/");
+		File f = new File("C://");
 		
-		os.searchFile(f, serchingfor);
+		System.out.println("It goes");
+	//	os.searchFile(f, serchingfor);
 		window.setScene(s2);
 	}
 
