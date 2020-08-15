@@ -17,7 +17,7 @@ import javafx.stage.Stage;
 
 public class Graphics extends Application{
 	Stage window;
-	Scene Start,s2;
+	Scene Start,s2,s3;
 	
 
 	@Override
@@ -46,6 +46,13 @@ public class Graphics extends Application{
 		layout2.getChildren().addAll(label2,layout3);
 		s2 = new Scene(layout2, 600, 300);
 		
+		Label label3 = new Label("OGE");
+		HBox layout4 = new HBox();
+		
+		layout4.getChildren().add(label3);
+		
+		s3 = new Scene(layout4, 600, 300);
+		
 //		window.setHeight(200);
 //		window.setWidth(300);
 		
@@ -60,10 +67,10 @@ public class Graphics extends Application{
 		serchingfor = "ProE_CD_Student";
 		
 		File f = new File("C://");
-		
-		System.out.println("It goes");
-	//	os.searchFile(f, serchingfor);
+	
 		window.setScene(s2);
+//		os.searchFile(f, serchingfor);
+//		window.setScene(s3);
 	}
 
 }
