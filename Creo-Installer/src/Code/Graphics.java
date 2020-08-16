@@ -37,7 +37,8 @@ public class Graphics extends Application{
 		button1.setScaleY(3);
 		Region r1 = new Region();
 		r1.setPrefWidth(0.1);
-		button1.setOnAction(e -> newClass());
+		//button1.setOnAction(e -> newClass());
+		button1.setOnAction(e -> window.setScene(s4));
 				
 		BorderPane layout1 = new  BorderPane();
 		HBox fürlabel = new HBox(100);
@@ -60,9 +61,13 @@ public class Graphics extends Application{
 		s2 = new Scene(layout2, 600, 300);
 		
 		Label label4 = new Label("Please Copy the Path of the ProE_CD_Student Directory and Paste it in here");		
-		//TextArea text new TextArea();
+		TextField text = new TextField("pls here");
 		
-		GridPane layout5 = new GridPane();
+		BorderPane layout5 = new BorderPane();
+		layout5.setCenter(text);
+		layout5.setTop(label4);
+		
+		s4 = new Scene(layout5, 400,300);
 		
 		
 		Label label3 = new Label("OGE");
