@@ -4,11 +4,13 @@ import java.io.File;
 import java.util.ArrayList;
 
 public class Verzeichnissuche {
-	File root = new File("User/Erik");
-	String dirName = new String("git");
-	ArrayList<File> list = new ArrayList<>();
-	boolean caseSensitivity = true;
-	boolean printEmpty = false;
+
+	public static void main(String[] args) {
+		ArrayList<File> list = listDirectories(new File("User/Erik"), "git", null, true, false);
+		for (int i = 0; i < list.size(); i++) {
+			System.out.println(list.get(i).toString());
+		}
+	}
 
 	public static ArrayList<File> listDirectories(File root, String dirName, ArrayList<File> list,
 			boolean caseSensitivity, boolean printEmpty) {
@@ -16,10 +18,10 @@ public class Verzeichnissuche {
 			System.err.println("Ausgangsverzeichnis oder gesuchter Verzeichnisname fehlt!");
 			return null;
 		}
-		if (list == null) 
+		if (list == null)
 			list = new ArrayList<File>();
+
 		File[] files = root.listFiles();
-	//	if(files.length == 0) {System.out.println("H컴컴컴컴컴");}
 		if (files.length != 0) {
 			for (File file : files) {
 				String fileStr = file.toString();
@@ -39,12 +41,5 @@ public class Verzeichnissuche {
 			System.out.println(root + " ist leer!");
 		}
 		return list;
-	}
-
-	public static void main(String[] args) {
-		ArrayList<File> list = listDirectories(new File("User/Erik"), "git", null, true, false);
-		for (int i = 0; i < list.size(); i++) {
-			System.out.println(list.get(i).toString());
-		}
 	}
 }

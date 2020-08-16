@@ -8,16 +8,21 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.ProgressIndicator;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 
 public class Graphics extends Application{
 	Stage window;
-	Scene Start,s2,s3;
+	Scene Start,s2,s3,s4;
 	
 
 	@Override
@@ -26,12 +31,20 @@ public class Graphics extends Application{
 		window = primaryStage;
 		
 		Label label1 = new Label("Wilkommen zum Creo_Installer");
+		label1.setFont(new Font("Cambria",25));
 		Button button1 = new Button("Starten");
+		button1.setScaleX(3);
+		button1.setScaleY(3);
+		Region r1 = new Region();
+		r1.setPrefWidth(0.1);
 		button1.setOnAction(e -> newClass());
 				
-		VBox layout1 = new  VBox(30);
-		layout1.getChildren().addAll(label1,button1);
-		Start = new Scene(layout1,300,200);
+		BorderPane layout1 = new  BorderPane();
+		HBox fürlabel = new HBox(100);
+		fürlabel.getChildren().addAll(label1);
+		layout1.setTop(fürlabel);
+		layout1.setCenter(button1);
+		Start = new Scene(layout1,350,200);
 		
 		
 		Label label2 = new Label("Please make sure the Directory ProE_CD_Student is stored in the C: Drive");
@@ -45,6 +58,12 @@ public class Graphics extends Application{
 		layout3.getChildren().addAll(r,pb,pi);
 		layout2.getChildren().addAll(label2,layout3);
 		s2 = new Scene(layout2, 600, 300);
+		
+		Label label4 = new Label("Please Copy the Path of the ProE_CD_Student Directory and Paste it in here");		
+		//TextArea text new TextArea();
+		
+		GridPane layout5 = new GridPane();
+		
 		
 		Label label3 = new Label("OGE");
 		HBox layout4 = new HBox();
